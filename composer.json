@@ -1,0 +1,42 @@
+{
+    "name": "ryanh7g/airtable-fastflat-php",
+    "description": "A fast PHP client for Airtable API with flat file caching and attachment support",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "airtable",
+        "api",
+        "client",
+        "cache",
+        "attachments"
+    ],
+    "authors": [
+        {
+            "name": "Ryan Hildebrant",
+            "email": "ryanh@sevengables.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BetterAirtable\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BetterAirtable\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
