@@ -41,7 +41,7 @@ $airtable = new Airtable(
     'your-base-id',           // Airtable base ID
     'your-table-name',        // Table name
     './cache',                // Cache directory (optional)
-    './cache/files'           // File cache directory (optional)
+    './cache/files' or '/public_html/images/cache'          // File cache directory (optional) | Directroty should be publically accessible in your web root if using for web or CMS purposes.
 );
 
 // Without caching (pass null for cache directories)
@@ -139,22 +139,19 @@ The library provides optional caching to improve performance:
 - **Response Caching**: API responses are cached as JSON files (when cache directory is set)
 - **Attachment Caching**: Image attachments are downloaded and cached locally (when file cache directory is set)
 - **Smart Invalidation**: Cache is automatically cleared when records are updated or deleted
-- **Cache Control**: Use the `$ignoreCache` parameter to bypass cache when needed
+- **Cache Control**: Use the `$ignoreCache` parameter to bypass cache and load fresh data from AT and refresh the cache.
 
 ### Cache Behavior
 
 - **No Cache Directories**: If you pass `null` (or omit) cache directories, no caching occurs
 - **GET Requests**: Cached when cache directory is provided
-- **Add Record**: Does not invalidate existing cache (new record will be cached when first requested)
-- **Update Record**: Automatically invalidates all cache to ensure data consistency
-- **Delete Record**: Automatically invalidates all cache to ensure data consistency
 
 ### Cache Directory Structure
 
 ```
 cache/                   # Response cache directory (optional)
 ├── [hash].json          # Cached API responses
-└── files/               # File cache directory (optional)
+└── files/               # File cache directory (optional) | Directroty should be publically accessible if using for web or CMS purposes.
     ├── attXXXXXX.jpg    # Cached image attachments
     └── attYYYYYY.png
 ```
